@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title> Planning Website For Books Database </title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="Description" lang="en" content="ADD SITE DESCRIPTION">
+		<meta name="author" content="ADD AUTHOR INFORMATION">
+		<meta name="robots" content="index, follow">
+
+		<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+		<link rel="shortcut icon" href="favicon.ico">
+<link rel="stylesheet" href="assets/highlight/styles/tomorrow.css">
+<script src="assets/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+       
+
+		<!-- Override CSS file - add your own CSS rules -->
+		<link rel="stylesheet" href="assets/css/styles.css">
+
+	</head>
+	<body>
+		<div class="container">
+			<div class="header">
+				<h1 class="header-heading"> Website For Books Database </h1>
+			</div>
+			<div class="nav-bar">
+				<ul class="nav">
+					<li><a href="#">Version 1</a></li>
+					<li><a href="#">Version 2</a></li>
+					<li><a href="#">Version 3</a></li>
+					<li><a href="#">Relevent Implications</a></li>
+				</ul>
+			</div>
+			<div class="content">
+                
+<!------------------------------------------------------------------------------------------------------------------------------------->			
+<h1>Brief</h1>
+
+<p> A database is an organized collection of structured data that is typically stored electronically in a computer system. 
+    Data within the most common form of databases today is typically done in rows and columns with a series of 
+	tables to make processing and data querying efficient. This also allows for data can then be easily accessed, managed,
+	modified, updated, controlled, and organized. Most databases use structured query language (SQL) for writing and querying data.
+    In this internal we have created a database about books we have included information such as the authors name, book genre etc.
+	This database has been created with the intention of organising a book club through the data base we can record different books 
+	and their associated information. We will also be able to record who in the book club has read what boook whitch will helpful so 
+    that nobody has to read the same book twice. If someone was to read a book but for example forgot the author and its title then 
+    as all books in the book club are stored on the data base they would be able to find the book by using querys such as selecting 
+	only books with a specific genre.</p>
+<hr>
+
+<!------------------------------------------------------------------------------------------------------------------------------------->
+<h1> Relevant Implications - Description </h1> 
+<p> Functionality </p>
+<p> For the relevant implication of functionality to be met there must be no errors and no incorrectly entered data in the database. The database
+	should work as expected meaning the user can get any information in any combination. </p>
+<p> Future Proofing </p>
+<p> The future proofing implication can be met if databases are designed in a way that allows for them to be updated and have features added to it.
+	The database should also still function as expected if data is added or removed. </p>
+<p> Usability </p>
+<p> The implication of usability is a measure of how well a user can use a product to achieve a defined goal effectively, efficiently and satisfactorily.
+	To ensure usability in a database information is displayed in a comprehensible way. </p>
+<hr>
+
+<!------------------------------------------------------------------------------------------------------------------------------------->
+<h1> Version One </h1>
+
+<p> In this version I have created a spreadsheet were everything is stored together so that I can preempt problems that might occur later and
+	try to prevent them. </p>
+
+<p> Plan with data types and restrictions on data input </p>
+<img src="Images/v1_table.jpg">
+
+<p> Reflection </p> 
+<p> Blank spaces for series as not all books are part of a series Multiple categories in the same cell eg. The genre of the book should be in a seperate catorgry 
+	Simple design for the next database meaning some the the data may be left behind 
+	There is lots of repetition particularly in Authors and genres We dropped the book 'Code' as it had two authors 
+	For the next version we would like to made a books table + authors table and then connect them 
+	There should not be any duplication of data in the database. Data should be stored in such a way 
+	that it should not be repeated in multiple tables. If repeated, it would be an unnecessary waste of DB space, and maintaining such data becomes chaos. 
+</p>
+
+<p><a href="Version_1.xlsx" class="btn">Spreadsheet</a></p>
+<hr>
+
+<!------------------------------------------------------------------------------------------------------------------------------------->
+<h1> Version Two </h1>
+
+<p> In this version I have created a Book Name Table (version_2) and a Author Table (version_2.1). For the field names under the Book name table I included 
+	BooksID which was the primary key, Title, Date, NumPages, ScreenPlay, SeriesName and AuthorID which is linked with the Author Table.
+    Under the Book Name table was also had Genre and Publisher but I took them out as they may have caused problems later on. In the 
+    Author Table the field names were ID which is joined to the Author ID in the Book Name table, FristName, last name, year of birth and origin. </p>
+
+<p> Plan data types and restrictions on data input </p>
+<img src="Images/v2_drawing.jpg">
+
+<p> Version 2 </p>
+<p><a href="Version_2.xlsx" class="btn">Spreadsheet</a></p>
+<p>Version 2.1</p>
+<p><a href="Version_2.1.xlsx" class="btn">Spreadsheet</a></p>
+
+<p> Link to data base </p>
+<p><a href="assets/BooksDatabase_v2.db" class="btn">Books Database Version 2</a></p>
+
+<p><b> Sample Queries </b></p>
+
+<p> Wild Card </p>
+<pre style="font-size: 1.5em;">
+<code class="SQL">
+select AuthorTable.BookAuthor , BookTable.AuthorId
+from BookTable
+join AuthorTable on BookTable.AuthorId = AuthorTable.AuthorId
+where BookAuthor like '%ca%'
+</code>
+</pre>
+
+<p> Wild Card Table </p>
+<table class="Wild Card"><tr><th>BookAuthor</th><th>AuthorID</th></tr><tr><td>Cassandra Clare
+</td><td>3</td></tr><tr><td>Cassandra Clare</td><td>3</td>
+</table>
+
+<p> Order By Book Pages </p>
+<pre style="font-size: 1.5em;">
+<code class="SQL">
+select BookTable.BookPages , BookTable.BookId
+from BookTable
+join AuthorTable on BookTable.AuthorId = AuthorTable.AuthorId
+order by BookPages
+</code>
+</pre>
+
+<p> Order By Book Pages Table </p>
+<table class="Order By Book Pages"><tr><th>BookPages</th><th>BookId</th></tr><tr><td>250
+</td><td>41</td></tr><tr><td>261</td><td>28</td></tr><tr><td>282</td><td>47</td></tr><tr>
+<td>285</td><td>12</td></tr><tr><td>295</td><td>34</td>
+</table>
+
+
+<p> Find All Origin </p>
+<pre style="font-size: 1.5em;">
+<code class="SQL">
+select AuthorTable.Origin , AuthorTable.BookAuthor
+from AuthorTable
+where Origin = 'UK'
+</code>
+</pre>
+
+<p> Find All Origin Table </p>
+<table class="Find All Origin"><tr><th>Origin</th><th>BookAuthor</th></tr><tr><td>UK
+</td><td>Lucinda Riley</td></tr><tr><td>UK</td><td>Kate Petty</td></tr><tr><td>UK</td>
+<td>Nicholas Bowling</td></tr><tr><td>UK</td><td>Anthony Horowitz</td></tr><tr><td>UK
+</td><td>Lucy Christopher</td></tr><tr><td>UK</td><td>Robert Muchamore</td></tr><tr>
+<td>UK</td><td>Sophie McKenzie</td></tr><tr><td>UK</td><td>Mia March</td>
+</table>
+
+<p> And/Or </p>
+<pre style="font-size: 1.5em;">
+<code class="SQL">
+select BookTable.DatePublished , BookTable.Screenplay , AuthorTable.Origin
+from BookTable
+join AuthorTable on BookTable.AuthorId = AuthorTable.AuthorId
+where DatePublished >2000 and Screenplay = 'Yes' and Origin = 'UK'
+</code>
+</pre>
+
+<p> And/Or Table </p>
+<table class="And/Or"><tr><th>Date Published</th><th>ScreenPlay</th><th>Origin</th></tr><tr><td>2011
+</td><td>Yes</td><td>UK</td><tr></tr><td>2006</td><td>Yes</td><td>UK</td>
+</table>
+
+ <p> Reflection (+ anything about relevant implications) </p>
+ <p> In this version I was able to create and join tables and craete a database which follows the relevant implications
+	 to some extent though it could be improved upon by stream lining different aspects of the database such as 
+	 creating tables allocated to similar field names.
+ </p>
+ <hr>
+
+<!------------------------------------------------------------------------------------------------------------------------------------->
+ <h1> Version Three </h1>
+
+<p> In this version we added the tables version_3.1 or GenreId, version_3.1_AssociationTable, version_3.2 or readerId and version_3.2_AssociationTable.
+	This is the final version of the database.  </p>
+
+<p> Plan with data types and restrictions on data input </p>
+<img src="Images/v3_drawing.jpg">
+
+<p> Version 3.1 </p>
+<p><a href="Version_3.1.xlsx" class="btn">Spreadsheet</a></p>
+<p> Version 3.1 Association Table </p>
+<p><a href="Version_3.1_AssociationTable.xlsx" class="btn">Spreadsheet</a></p>
+<p> Version 3.2 </p>
+<p><a href="Version_3.2.xlsx" class="btn">Spreadsheet</a></p>
+<p> Version 3.2 Association Table </p>
+<p><a href="Version_3.2_AssociationTable.xlsx" class="btn">Spreadsheet</a></p>
+
+<p> Link to data base </p>
+<p><a href="assets/BooksDatabase_v3.db" class="btn">Books Database Version 2</a></p>
+
+<p> Query examples with tables as examples of how the data would be presented </p>
+
+<p> Alias </p>
+<pre style="font-size: 1.5em;">
+<code class="SQL">
+select ReaderId AS ReaderId, FirstName AS ReaderDOB
+from ReaderTable;	
+</code>
+</pre>
+
+<p> Alias Table </p>
+<table class="Alias"><tr><th>ReaderId</th><th>ReaderDOB</th></tr><tr><td>1
+</td><td>Ruby</td><tr></tr><td>2</td><td>Aaliyah</td><tr></tr><td>3</td><td>
+Eva</td><tr></tr><td>4</td><td>Lauren</td><tr></tr><td>5</td><td>Sophie</td>
+</table>
+
+<p> Reflection (+ anything about relevant implications) </p>
+<P> In this verison I have finalised my database. It follows the relevant Implications
+	of functionality, future proofing and usability. It could be imporved further by creating 
+    more tables therefore allowing to store more information for the user to access. </P>
+<hr>
+
+<!------------------------------------------------------------------------------------------------------------------------------------->
+<h1> Relevant Implications - Summary </h1>
+
+<p> Functionality</p>
+<p>For the relevant implication of functionality to met there need to be no errors as well as no incorrectly entered data. The database 
+should also work as expected meaning the user can get any information in any combination. We met this implication as a varaiaty of are 
+able to be run in our books database.
+</p>
+
+<p> Future Proofing </p>
+<p> Our database is future proofed as it can be updated and have features added to it, data can be removed or added. And we are also able to 
+	plug in new tables without having to reconstruct the entire databse.
+	</p>
+
+<p> Usability </p>
+<p> The database follows the implication of usability because the information is displayed in a comprehensible way and the feild names are easily
+	 understood and organsied in a senitable way.
+	</p>
+
+<hr>
+
+			</div>
+			<div class="footer">
+				&copy; Copyright 2015
+	</body>
+</html>
